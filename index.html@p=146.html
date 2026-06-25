@@ -555,9 +555,9 @@ var shopEngineWishlist = {"product_id":"146","resturl":"https://najmatalalam.com
 				</div>
 		<div class="elementor-element elementor-element-1dc1f21f e-con-full e-flex wpr-particle-no wpr-jarallax-no wpr-parallax-no wpr-sticky-section-no wpr-column-slider-no wpr-equal-height-no e-con e-child" data-id="1dc1f21f" data-element_type="container" data-e-type="container">
 				<div class="elementor-element elementor-element-18932cf4 elementor-mobile-align-center elementor-align-right elementor-widget elementor-widget-button" data-id="18932cf4" data-element_type="widget" data-e-type="widget" data-widget_type="button.default">
-										<a class="elementor-button elementor-button-link elementor-size-sm" href="index.html@p=146.html#">
+										<a class="elementor-button elementor-button-link elementor-size-sm" href="index.html@p=146.html#metform-wrap-6d5d40c9-611">
 						<span class="elementor-button-content-wrapper">
-									<span class="elementor-button-text">Submit an Enquiry</span>
+									<span class="elementor-button-text">Enquire Now</span>
 					</span>
 					</a>
 								</div>
@@ -851,6 +851,7 @@ var shopEngineWishlist = {"product_id":"146","resturl":"https://najmatalalam.com
 							<button type="submit" className="metform-btn metform-submit-btn " id="">
 					<span>${ parent.decodeEntities(`Send Message`) } </span>
 				</button>
+				<div id="web3forms-message"></div>
 			        </div>
         				</div>
 					</div>
@@ -1232,21 +1233,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 const result = await response.json();
 
                 
-let messageBox = document.getElementById("web3forms-message");
-if (!messageBox) {
-    messageBox = document.createElement("div");
-    messageBox.id = "web3forms-message";
-    form.parentNode.insertBefore(messageBox, form);
-}
+const messageBox = document.getElementById("web3forms-message");
 if (result.success) {
-    messageBox.innerHTML = '<div style="color:green;font-weight:600;margin-bottom:15px;">Thank you! Your enquiry has been submitted successfully.</div>';
+    messageBox.innerHTML =
+        '<div style="color:green;font-weight:600;margin-top:15px;">Thank you! Your enquiry has been submitted successfully.</div>';
     form.reset();
 } else {
-    messageBox.innerHTML = '<div style="color:red;font-weight:600;margin-bottom:15px;">Unable to submit the form. Please try again or contact the admin.</div>';
+    messageBox.innerHTML =
+        '<div style="color:red;font-weight:600;margin-top:15px;">Unable to submit the form. Please try again or contact the admin.</div>';
 }
 
             } catch (err) {
-                document.getElementById("web3forms-message")?.remove(); var messageBox=document.createElement("div"); messageBox.id="web3forms-message"; form.parentNode.insertBefore(messageBox, form); messageBox.innerHTML='<div style="color:red;font-weight:600;margin-bottom:15px;">Unable to submit the form. Please try again.</div>';
+                document.getElementById("web3forms-message")?.remove(); var messageBox=document.createElement("div"); messageBox.id="web3forms-message"; form.parentNode.insertBefore(messageBox, form); 
+				messageBox.innerHTML =
+    '<div style="color:red;font-weight:600;margin-top:15px;">Unable to submit the form. Please try 	again or contact the admin.</div>';
             }
         }, true);
     }, 500);
